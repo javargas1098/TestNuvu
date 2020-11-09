@@ -1,4 +1,4 @@
-package com.test.config;
+package com.test.security;
 
 import com.test.service.JwtUserService;
 import io.jsonwebtoken.ExpiredJwtException;

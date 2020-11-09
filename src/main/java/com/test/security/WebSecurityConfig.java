@@ -1,4 +1,4 @@
-package com.test.config;
+package com.test.security;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,13 +58,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
-        httpSecurity.csrf().disable().cors().configurationSource(corsConfigurationSource()).and()
-                .authorizeRequests().antMatchers("/authenticate", "/register").permitAll().
+        httpSecurity.csrf().disable().cors().configurationSource(corsConfigurationSource())
+                .and()
+                .authorizeRequests().antMatchers("/authenticate", "/register", "/v2/api-docs", "/*.html", "/swagger-resources/**", "/configuration/**", "/webjars/**").permitAll().
                 anyRequest().authenticated().and().
                 exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 

@@ -1,4 +1,4 @@
-package com.test.config;
+package com.test.security;
 
 import java.io.IOException;
 import java.io.Serializable;

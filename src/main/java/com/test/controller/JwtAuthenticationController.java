@@ -1,6 +1,6 @@
 package com.test.controller;
 
-import com.test.config.JwtTokenUtil;
+import com.test.security.JwtTokenUtil;
 import com.test.dtos.ResponseGenericDTO;
 import com.test.dtos.UserDto;
 import com.test.exceptions.UserRuntimeException;
